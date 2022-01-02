@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTOS DOM ex006</title>
+    <style>
+        div#area
+        {
+            font: normal 20pt arial;
+            background-color: rgba(0, 128, 0, 0.74);
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="area" >
+INTERAÇÃO
+</div>
+<script>
+    var area = window.document.getElementById('area')
+    /*no lugar de 
+    onclick="Clicar()" onmouseenter="entrar()" onmouseout="Saiu()"
+    dentro da div usar os comando a baixo*/
+    area.addEventListener('click', Clicar)
+    area.addEventListener('mouseenter', entrar)
+    area.addEventListener('mouseout', Saiu)
+    
+    function Clicar()
+    {
+        
+        area.innerText = 'Clicou '
+        area.style.background = 'red'
+    
+    }
+    function entrar()
+    {
+        area.innerText = 'Entrou '
+        area.style.background = 'green'
+    }
+    function Saiu()
+    {
+        area.innerText = 'Saiu '
+        area.style.background = 'green'
+    }
+</script>
+</body>
+</html>
