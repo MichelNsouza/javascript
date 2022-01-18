@@ -1,27 +1,82 @@
+/////////////////////// rever essa aula, modulo D parte 3 !!!!!!!!!!!!!!!!!!!!
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>modelo exercicio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ex015</title>
+    <style>
+        body{ 
+background-color: rgb(107, 107, 241);
+font: normal 15pt Arial;
+}
+header{
+    color: white;
+    text-align: center;
+}
+section{
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.411);
+}
+footer{
+    color: white;
+    font-style: italic;
+    text-align: center;
+}
+    </style>
 </head>
 <body>
     <header>
-        <h1>Titulo</h1>
+        <h1>Verificador de idade</h1>
     </header>
     <section>
         <div>
-            teste 1
+            <p> Ano de Nascimento:
+                <input type="number" name="anotxt" id="anotxt" min="0" max="100">
+
+            </p>
+            <p>
+                Sexo:
+                <input type="radio" name="rdsexo" id="masculino">
+                <label for="masculino">Masculino</label>
+                <input type="radio" name="rdsexo" id="feminino"checked>
+                <label for="feminino">Feminino</label>
+                
+            </p>
+            <p>
+                <input type="button" value="verificar" onclick="verificar()">
+            </p>
         </div>
-        <div>
-            teste 2
+        <div id="resultado">
+            Preencha os dados acima para ver o resultado!
         </div>
     </section>
     <footer>
         <p> &copy; Michel Souza</p>
     </footer>
-<script src="script.js"></script>
+<script>
+        function verificar(){
+        var data = new Date()
+        var ano = data.getFullYear()
+        var formularioano = document.getElementById('anotxt')
+        var resultad = document.getElementById('resultado')
+            if(formularioano.value.length == 0 || formularioano.value > ano){
+                window.alert(`{[ERRO] verifique os dados e tente novamente!`)
+            } else{
+                var formulariosexo = document.getElementsByName('radsex')
+                var idade = ano - Number(formularioano.value)
+                var genero = ''
+                if (formulariosexo[1].checked){
+                    genero = 'mulher'
+                }
+                resultad.innerHTML = `seu  genero é ${genero} com ${anos} `
+            }
+    }
+</script>
 </body>
 </html>
